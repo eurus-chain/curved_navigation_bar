@@ -5,9 +5,10 @@ class NavCustomPainter extends CustomPainter {
   double s;
   Color color;
   TextDirection textDirection;
+  Shader shader;
 
   NavCustomPainter(
-      double startingLoc, int itemsLength, this.color, this.textDirection) {
+      double startingLoc, int itemsLength, this.color, this.textDirection, [this.shader]) {
     final span = 1.0 / itemsLength;
     s = 0.2;
     double l = startingLoc + (span - s) / 2;
@@ -17,6 +18,7 @@ class NavCustomPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     final paint = Paint()
+      ..shader = shader
       ..color = color
       ..style = PaintingStyle.fill;
 
